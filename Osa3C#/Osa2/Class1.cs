@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Text;
 
-namespace Naidis_IKTpv25.Osa2
+namespace Osa3C_.Osa2
 {
     public class OsaFunktsioonid
     {
