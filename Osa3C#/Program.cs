@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 namespace Osa3C_
@@ -73,10 +73,6 @@ namespace Osa3C_
                     if (number < 0 || number > 9)
                     {
                         Console.WriteLine("Number peab olema 0–9!");
-                    }
-                    else if (arvudList.Contains(number))
-                    {
-                        Console.WriteLine("See number on juba valitud, vali teine!");
                     }
                     else
                     {
