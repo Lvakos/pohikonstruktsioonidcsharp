@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Osa3C_.Osa2
 {
-    public class OsaFunktsioonid
+    public class osa2
     {
         public static string Juku(string nimi)
         {
@@ -122,7 +122,7 @@ namespace Osa3C_.Osa2
             string message = "";
             int pikkus = 0;
             Console.WriteLine("Sisesta pikkus: ");
-            pikkus = int.Parse(Console.Readline());
+            pikkus = int.Parse(Console.ReadLine());
             if (sugu == "mees")
             {
                 if (pikkus < 140)

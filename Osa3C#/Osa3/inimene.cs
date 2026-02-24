@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Osa3C_
+namespace Osa3C_.Osa3
 {
     internal class inimene
     {

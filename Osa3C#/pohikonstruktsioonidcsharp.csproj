@@ -6,6 +6,7 @@
     <RootNamespace>Osa3C_</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <StartupObject>Osa3C_.StartPage</StartupObject>
   </PropertyGroup>
 
 </Project>

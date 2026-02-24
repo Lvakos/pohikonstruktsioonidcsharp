@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-namespace Osa3C_
+namespace Osa3C_.Osa3
 {
-    public class Code
+    public class osa3
     {
         public static int[] GenereeriRuudud(int min, int max)
         {
@@ -60,8 +60,8 @@ namespace Osa3C_
                 inimene inimene2 = new inimene(nimi, vanus);
                 Inimesed.Add(inimene2);
             }
-            var analüüs = Code.Statistika(Inimesed);
-            Console.WriteLine($"Vanuste arv: {analüüs.Item1}, Vanuste keskmine: {analüüs.Item2}, Noorim inimene: {analüüs.Item3.Nimi}, Vanem inimene: {analüüs.Item4.Nimi}");
+            var analüüs = osa3.Statistika(Inimesed);
+            Console.WriteLine($"Vanuste arv: {analüüs.Item1}. Vanuste keskmine: {analüüs.Item2}. Noorim inimene: {analüüs.Item3.Nimi}. Vanem inimene: {analüüs.Item4.Nimi}");
         }
         public static void arvumang()
         {
