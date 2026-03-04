@@ -6,7 +6,7 @@ using System.Text.Json;
 
 namespace Osa3C_.Osa3
 {
-    public class StartPage
+    public class start3
     {
         public static void Main(string[] args)
         {

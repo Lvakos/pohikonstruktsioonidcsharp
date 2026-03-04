@@ -3,10 +3,10 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net10.0</TargetFramework>
-    <RootNamespace>Osa3C#</RootNamespace>
+    <RootNamespace>Osa3C_</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>Osa3C_.Osa3.StartPage</StartupObject>
+    <StartupObject>Osa3C_.Osa4.start4</StartupObject>
     <AssemblyTitle>pohikonstruktsioonidcsharp</AssemblyTitle>
   </PropertyGroup>
 

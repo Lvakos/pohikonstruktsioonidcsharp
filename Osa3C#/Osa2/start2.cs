@@ -6,7 +6,7 @@ namespace Osa3C_.Osa2
 {
     public class start2
     {
-        public static void start()
+        public static void Main()
         {
             // Juku ja kinno
             /*Console.Write("Sisesta sõbra nimi: ");
