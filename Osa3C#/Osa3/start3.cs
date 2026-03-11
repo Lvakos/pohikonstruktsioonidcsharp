@@ -17,10 +17,16 @@ namespace Osa3C_.Osa3
                 1. Juhuslike arvude ruudud
                 2. Viie arvu analüüs
                 3. Nimed ja vanused
-                4. Arvamise mäng
-                5. Suurim neliarvuline arv
-                6. Korrustustabel
-                7. Õpilastega mängimine
+                4. Osta elevant ära!
+                5. Arvamise mäng
+                6. Suurim neliarvuline arv
+                7. Korrustustabel
+                8. Õpilastega mängimine
+                9. Arvude ruudud
+                10. Positiivsed ja negatiivsed
+                11. Keskmisest suuremad
+                12. Kõige suurema arvu otsing
+                13. Paari- ja paaritud loendused
                 """);
             int valik = int.Parse(Console.ReadLine());
             if (valik == 1)
@@ -51,20 +57,49 @@ namespace Osa3C_.Osa3
             }
             else if (valik == 4)
             {
-                osa3.arvumang();
+                osa3.ostsElevantAra();
             }
             else if (valik == 5)
             {
-                osa3.SuurimNeliarv();
+                osa3.arvumang();
             }
             else if (valik == 6)
             {
-                osa3.GenereeriKorrutustabel(10, 10);
+                osa3.SuurimNeliarv();
             }
             else if (valik == 7)
             {
+                osa3.GenereeriKorrutustabel(10, 10);
+            }
+            else if (valik == 8)
+            {
                 string[] nimed = { "Maks", "Vitalya", "Yarik", "Lev", "Oleg", "Dominic", "Nikita", "Kirill", "Dima", "Daria"};
                 osa3.ÕpilastegaMängimine(nimed);
+            }
+            else if (valik == 9)
+            {
+               
+                osa3.arvudRuudud();
+            }
+            else if (valik == 10)
+            {
+
+                osa3.Positiivsed_ja_negatiivsed();
+            }
+            else if (valik == 11)
+            {
+
+                osa3.rohkemkuiKeskmine();
+            }
+            else if (valik == 12)
+            {
+
+                osa3.suurimJaIndeks();
+            }
+            else if (valik == 13)
+            {
+
+                osa3.PaariPaaritud();
             }
         }
     }

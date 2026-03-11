@@ -12,7 +12,8 @@ namespace Osa3C_.Osa4
             //osa4.FailiKirjutamine();
             //osa4.FailiLugemine();
             //osa4.ListiMuutmineJaKuvamine();
-            osa4.otsiNimekirjast();
+            // osa4.otsiNimekirjast();
+            osa4.lemmiktoiduSalvestamine();
         }
     }
 }

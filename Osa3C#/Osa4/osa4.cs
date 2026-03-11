@@ -135,7 +135,7 @@ namespace Osa3C_.Osa4
 
         string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Kuud.txt");
         File.WriteAllLines(path, kuude_list);
-        Console.WriteLine("Andmed on salvestatud.");*/ 
+        Console.WriteLine("Andmed on salvestatud.");*/
 
 
         /*💡 Parimad praktikad
@@ -156,5 +156,27 @@ namespace Osa3C_.Osa4
             Andmestruktuurid List<string>, lisamine, muutmine, kustutamine
             Failitee kasutamine Path.Combine, AppDomain.CurrentDomain.BaseDirectory
             Otsing ja salvestus     Contains(), WriteAllLines()*/
+
+
+        // Praktilised ülesanded
+        // 1
+        public static void lemmiktoiduSalvestamine()
+        {
+            List<string> retseptid = new List<string>();
+            try
+            {
+                string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Retseptid.txt");
+                StreamWriter retsept = new StreamWriter(path, true);
+                Console.WriteLine("Sisesta üks Itaalia toidu nimi");
+                string lause = Console.ReadLine();
+                retsept.WriteLine(lause);
+                retsept.Close();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Viga failiga!");
+            }
+
+        }
     }
 }
