@@ -6,7 +6,7 @@
     <RootNamespace>Osa3C_</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>Osa3C_.Osa3.start3</StartupObject>
+    <StartupObject>Osa3C_.Osa5.start_page_osa5</StartupObject>
     <AssemblyTitle>pohikonstruktsioonidcsharp</AssemblyTitle>
   </PropertyGroup>
 
