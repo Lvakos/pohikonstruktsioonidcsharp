@@ -99,6 +99,7 @@ namespace Osa3C_.Osa5
 
         public static void maakondJapealinnad()
         {
+            Random rnd = new Random();
             Dictionary<string, string> maakonnad = new Dictionary<string, string>
             {
                 { "Harjumaa", "Tallinn" },
@@ -118,27 +119,67 @@ namespace Osa3C_.Osa5
                 { "Võrumaa", "Võru" }
             };
 
-            Console.WriteLine("Sisesta pealinn");
-            string pealinn = Console.ReadLine();
-
-            foreach (var paar in maakonnad)
+            try
             {
-                if (paar.Value == pealinn)
+                Console.WriteLine("Sisesta pealinn: ");
+                string pealinn = Console.ReadLine();
+
+                foreach (var paar in maakonnad)
                 {
-                    Console.WriteLine($"{pealinn} maakond on {paar.Key}");
+                    if (paar.Value == pealinn)
+                    {
+                        Console.WriteLine($"{pealinn} maakond on {paar.Key}");
+                    }
                 }
             }
 
-            Console.WriteLine("Sisesta ");
-            string maakond = Console.ReadLine();
-
-            foreach (var paar in maakonnad)
+            catch(Exception x)
             {
-                if (paar.Key == maakond)
+                Console.WriteLine($"Midagi läks valesti {x}");
+            }
+
+            try
+            {
+                Console.WriteLine("Sisesta maakond: ");
+                string maakond = Console.ReadLine();
+
+                foreach (var paar in maakonnad)
                 {
-                    Console.WriteLine($"{maakond} pealinn on {paar.Value}");
+                    if (paar.Key == maakond)
+                    {
+                        Console.WriteLine($"{maakond} pealinn on {paar.Value}");
+                    }
                 }
             }
+
+            catch (Exception x)
+            {
+                Console.WriteLine($"Midagi läks valesti {x}");
+            }
+
+            List<string> rndmaakonnad = maakonnad.Keys.OrderBy(x => rnd.Next()).ToList();
+            string sisend = "";
+            int kogemus = 0;
+
+            foreach (string maakondd in rndmaakonnad)
+            {
+                Console.WriteLine($"Mis on {maakondd} keskus?");
+                sisend = Console.ReadLine().Trim();
+                sisend = char.ToUpper(sisend[0]) + sisend.Substring(1).ToLower();
+
+                if (sisend == maakonnad[maakondd])
+                {
+                    Console.WriteLine("Õige!");
+                    kogemus++;
+                }
+                else
+                {
+                    Console.WriteLine($"Vale! Õige vastus on {maakonnad[maakondd]}");
+                }
+            }
+
+            Console.WriteLine($"Tulemus: {kogemus}/{maakonnad.Count()}");
+
         }
     }
 }
