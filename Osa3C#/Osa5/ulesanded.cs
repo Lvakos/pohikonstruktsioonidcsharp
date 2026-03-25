@@ -181,5 +181,177 @@ namespace Osa3C_.Osa5
             Console.WriteLine($"Tulemus: {kogemus}/{maakonnad.Count()}");
 
         }
+        public static void opilased(List<opilane> opilased)
+        {
+
+            opilased = opilased.OrderByDescending(o => o.Hinded.Average()).ToList();
+            foreach (opilane opilane in opilased)
+            {
+                double keskmine = opilane.Hinded.Average();
+                Console.WriteLine($"{opilane.Nimi} keskminehind: {keskmine}");
+
+            }
+            Console.WriteLine($"parim keskmine hind:  {opilased[0].Nimi} {opilased[0].Hinded.Average()} ");
+
+        }
+
+        public static void Tekstist_arvud()
+        {
+            int suuremKui = 0;
+            double[] masiiv = new double[5];
+            for (int i = 0; i < 5; i++)
+            {
+                Console.WriteLine($"sisesta {i}. arv: ");
+                masiiv[i] = double.Parse(Console.ReadLine());
+
+
+            }
+
+            Array.Sort(masiiv);
+            foreach (double arv in masiiv)
+            {
+                Console.WriteLine(arv);
+                if (arv > masiiv.Average())
+                {
+                    suuremKui++;
+                }
+            }
+
+
+            double min = masiiv.Min();
+            double max = masiiv.Max();
+            double keskmine = masiiv.Average();
+
+            Console.WriteLine($"Maksimaalne arv masiivist: {max}");
+            Console.WriteLine($"Minimaalne arv masiivist: {min}");
+            Console.WriteLine($"Keskmine arv masiivist: {keskmine}");
+            Console.WriteLine($"Arvudest suurem kui keskmine: {suuremKui}");
+
+
+
+
+
+        }
+
+        public static void Lemmikloomade_register()
+        {
+
+            List<Lemmikloom> lemmikloomad = new List<Lemmikloom>();
+
+            for (int i = 0; i < 5; i++)
+            {
+                Lemmikloom loom = new Lemmikloom();
+
+                Console.Write($"Sisesta {i + 1}. looma nimi: ");
+                loom.Nimi = Console.ReadLine();
+
+                Console.Write($"Sisesta {i + 1}. looma liik (kass/koer jne): ");
+                loom.Liik = Console.ReadLine();
+
+                Console.Write($"Sisesta {i + 1}. looma vanus: ");
+                loom.Vanus = int.Parse(Console.ReadLine());
+
+                lemmikloomad.Add(loom);
+                Console.WriteLine("----------------------------");
+            }
+            foreach (Lemmikloom l in lemmikloomad)
+            {
+                if (l.Liik.ToLower() == "kass")
+                {
+                    Console.WriteLine("Kass: " + l.Nimi + ", Liik: " + l.Liik + ", Vanus: " + l.Vanus);
+                }
+            }
+            double keskmineVanus = lemmikloomad.Average(l => l.Vanus);
+            lemmikloomad.Sort((x, y) => y.Vanus.CompareTo(x.Vanus));
+            string vaneimLoom = lemmikloomad[0].Nimi;
+
+
+
+            Console.WriteLine($"Vanim loom: {vaneimLoom}");
+            Console.WriteLine($"Keskmine vanus: {keskmineVanus}");
+            Console.WriteLine("kas sa tahad otsida mingi loom (jah/ei)?:  ");
+            string otsing = Console.ReadLine().ToLower();
+            if (otsing == "jah")
+            {
+                Console.WriteLine("Sisesta otsitav loom: ");
+                string ostsitudLoom = Console.ReadLine();
+                for (int lo = 0; lo < lemmikloomad.Count; lo++)
+                {
+                    if (ostsitudLoom == lemmikloomad[lo].Nimi)
+                    {
+                        Console.WriteLine($"Loom leitud: {lemmikloomad[lo].Nimi}, Liik: {lemmikloomad[lo].Liik}, Vanus: {lemmikloomad[lo].Vanus}");
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Looma ei leitud!");
+                        break;
+                    }
+                }
+            }
+
+        }
+
+
+
+        public static void ValuteCalculator()
+        {
+            List<Valute> valutes = new List<Valute>()
+        {
+            new Valute("UAH", 50.90),
+            new Valute("CZK", 24.46),
+            new Valute("USD", 1.16)
+        };
+            while (true)
+            {
+                Console.Write("Sisesta summa: ");
+                double summa = double.Parse(Console.ReadLine());
+
+                Console.Write("Sisesta valuut (UAH, CZK, USD): ");
+                string valuut = Console.ReadLine().ToUpper();
+
+                Console.WriteLine("otsi või müüa?");
+                string valik = Console.ReadLine().ToLower();
+
+
+                Valute selected = valutes.Find(v => v.Nimi == valuut);
+
+                if (selected != null)
+                {
+                    if (valik == "müüa")
+                    {
+                        double eur = summa / selected.Kurs;
+
+                        double value = eur * selected.Kurs;
+
+                        Console.WriteLine($"1 EUR = {selected.Kurs} {selected.Nimi}");
+                        Console.WriteLine($"{summa} {selected.Nimi} = {eur} EUR");
+                        break;
+
+                    }
+                    else if (valik == "otsi")
+                    {
+                        double eur = summa * selected.Kurs;
+                        double value = eur / selected.Kurs;
+                        Console.WriteLine($"1 EUR = {selected.Kurs} {selected.Nimi}");
+                        Console.WriteLine($"{summa} EUR = {eur} {selected.Nimi}");
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Vigane valik!");
+                    }
+
+
+
+
+                }
+                else
+                {
+                    Console.WriteLine("Meie bank ei tea selle valuut :( ");
+                }
+
+            }
+        }
     }
 }

@@ -36,6 +36,60 @@ namespace Osa3C_.Osa5
                 case "7":
                     ulesanded.maakondJapealinnad();
                     break;
+
+                case "8":
+                    List<opilane> opilased = new List<opilane>();
+
+                    for (int i = 0; i < 3; i++)
+                    {
+                        try
+                        {
+                            List<int> hinded = new List<int>();
+                            Console.Write("Sisesta õpilase nimi: ");
+                            string nimi = Console.ReadLine();
+                            for (int j = 0; j < 5; j++)
+                            {
+
+                                Console.Write("Sisesta õpilase hinded (1-5): ");
+                                int hinne = int.Parse(Console.ReadLine());
+                                if (hinne > 1 || hinne < 5)
+                                {
+                                    hinded.Add(hinne);
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Hinded peab olema vahemikus 1-5");
+                                }
+
+                            }
+                            opilane uus_opilane = new opilane(nimi, hinded);
+                            opilased.Add(uus_opilane);
+                        }
+
+                        catch (Exception)
+                        {
+                            Console.WriteLine("Vale andmed");
+
+                        }
+
+                    }
+                    ulesanded.opilased(opilased);
+                    break;
+
+
+
+                case "9":
+                    ulesanded.Tekstist_arvud();
+                    break;
+
+                case "10":
+                    ulesanded.Lemmikloomade_register();
+                    break;
+
+                case "11":
+                    ulesanded.ValuteCalculator();
+                    break;
+
                 default:
                     Console.WriteLine("Valik puudub");
                     break;
