@@ -5,6 +5,24 @@ using System.Text;
 
 namespace Osa3C_.Osa5
 {
+    public class Lemmikloom
+    {
+        public string Nimi { get; set; }
+        public string Liik { get; set; }
+        public int Vanus { get; set; }
+    }
+    public class Valute
+    {
+        public string Nimi { get; set; }
+        public double Kurs { get; set; }
+
+        public Valute(string nimi, double kurs)
+        {
+            Nimi = nimi;
+            Kurs = kurs;
+        }
+    }
+
     internal class ulesanded
     {
         public class Toode
@@ -159,7 +177,7 @@ namespace Osa3C_.Osa5
 
             List<string> rndmaakonnad = maakonnad.Keys.OrderBy(x => rnd.Next()).ToList();
             string sisend = "";
-            int kogemus = 0;
+            int count = 0;
 
             foreach (string maakondd in rndmaakonnad)
             {
@@ -170,7 +188,7 @@ namespace Osa3C_.Osa5
                 if (sisend == maakonnad[maakondd])
                 {
                     Console.WriteLine("Õige!");
-                    kogemus++;
+                    count++;
                 }
                 else
                 {
@@ -178,9 +196,11 @@ namespace Osa3C_.Osa5
                 }
             }
 
-            Console.WriteLine($"Tulemus: {kogemus}/{maakonnad.Count()}");
+            Console.WriteLine($"Tulemus: {count}/{maakonnad.Count()}");
 
         }
+
+
         public static void opilased(List<opilane> opilased)
         {
 
@@ -252,7 +272,6 @@ namespace Osa3C_.Osa5
                 loom.Vanus = int.Parse(Console.ReadLine());
 
                 lemmikloomad.Add(loom);
-                Console.WriteLine("----------------------------");
             }
             foreach (Lemmikloom l in lemmikloomad)
             {
@@ -292,25 +311,24 @@ namespace Osa3C_.Osa5
 
         }
 
-
-
         public static void ValuteCalculator()
         {
             List<Valute> valutes = new List<Valute>()
-        {
-            new Valute("UAH", 50.90),
-            new Valute("CZK", 24.46),
-            new Valute("USD", 1.16)
-        };
+            {
+            new Valute("USD", 1.16),
+            new Valute("RUB", 93.99),
+            new Valute("UAH", 50.90)
+            };
+
             while (true)
             {
-                Console.Write("Sisesta summa: ");
+                Console.Write("Sisesta kui palju eurot sa tahad vahetuda: ");
                 double summa = double.Parse(Console.ReadLine());
 
-                Console.Write("Sisesta valuut (UAH, CZK, USD): ");
+                Console.Write("Sisesta valuut (USD, RUB, UAH): ");
                 string valuut = Console.ReadLine().ToUpper();
 
-                Console.WriteLine("otsi või müüa?");
+                Console.WriteLine("Kas osta või müüa?");
                 string valik = Console.ReadLine().ToLower();
 
 
@@ -322,33 +340,26 @@ namespace Osa3C_.Osa5
                     {
                         double eur = summa / selected.Kurs;
 
-                        double value = eur * selected.Kurs;
-
                         Console.WriteLine($"1 EUR = {selected.Kurs} {selected.Nimi}");
-                        Console.WriteLine($"{summa} {selected.Nimi} = {eur} EUR");
+                        Console.WriteLine($"{summa} {selected.Nimi} = {eur:F2} EUR");
                         break;
 
                     }
-                    else if (valik == "otsi")
+                    else if (valik == "osta")
                     {
                         double eur = summa * selected.Kurs;
-                        double value = eur / selected.Kurs;
                         Console.WriteLine($"1 EUR = {selected.Kurs} {selected.Nimi}");
-                        Console.WriteLine($"{summa} EUR = {eur} {selected.Nimi}");
+                        Console.WriteLine($"{summa} EUR = {eur:F2} {selected.Nimi}");
                         break;
                     }
                     else
                     {
                         Console.WriteLine("Vigane valik!");
                     }
-
-
-
-
                 }
                 else
                 {
-                    Console.WriteLine("Meie bank ei tea selle valuut :( ");
+                    Console.WriteLine($"Meie bank ei tea selle valuut {valuut}: ");
                 }
 
             }

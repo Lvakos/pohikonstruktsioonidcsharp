@@ -4,6 +4,21 @@ using System.Text;
 
 namespace Osa3C_.Osa5
 {
+    public class opilane
+    {
+
+
+        public string Nimi { get; set; }
+        public List<int> Hinded { get; set; }
+
+
+        public opilane(string? nimi, List<int> hinded)
+        {
+            Nimi = nimi;
+            Hinded = hinded;
+        }
+    }
+
     internal class start_page_osa5
     {
         public static void Main(string[] args)
